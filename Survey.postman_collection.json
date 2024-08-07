@@ -1,0 +1,549 @@
+{
+	"info": {
+		"_postman_id": "a225398b-368c-4ff2-bf9c-704bc105c778",
+		"name": "Survey",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14694010"
+	},
+	"item": [
+		{
+			"name": "Get All survey",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Wazo-Tenant",
+						"value": "83dd446b-8f80-4a37-94ed-74a51b64a88c",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "95cf2afc-4b4c-4066-9a95-229c98e73612",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://185.128.136.143:443/api/confd/1.1/surveys?queue_id=1",
+					"protocol": "https",
+					"host": [
+						"185",
+						"128",
+						"136",
+						"143"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"confd",
+						"1.1",
+						"surveys"
+					],
+					"query": [
+						{
+							"key": "queue_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All survey by Agent ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Wazo-Tenant",
+						"value": "83dd446b-8f80-4a37-94ed-74a51b64a88c",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "588b2719-46ae-4c2d-b697-05ffe940e1e6",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://hivepal.com:443/api/confd/1.1/surveys/agent/36",
+					"protocol": "https",
+					"host": [
+						"hivepal",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"confd",
+						"1.1",
+						"surveys",
+						"agent",
+						"36"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All survey by Queue ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Wazo-Tenant",
+						"value": "83dd446b-8f80-4a37-94ed-74a51b64a88c",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "588b2719-46ae-4c2d-b697-05ffe940e1e6",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://hivepal.com:443/api/confd/1.1/surveys/queue/1",
+					"protocol": "https",
+					"host": [
+						"hivepal",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"confd",
+						"1.1",
+						"surveys",
+						"queue",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Average Rating  by Queue ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Wazo-Tenant",
+						"value": "83dd446b-8f80-4a37-94ed-74a51b64a88c",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "588b2719-46ae-4c2d-b697-05ffe940e1e6",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://hivepal.com:443/api/confd/1.1/surveys/average/queue/1?from=2022-08-08&until=2022-08-11",
+					"protocol": "https",
+					"host": [
+						"hivepal",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"confd",
+						"1.1",
+						"surveys",
+						"average",
+						"queue",
+						"1"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2022-08-08"
+						},
+						{
+							"key": "until",
+							"value": "2022-08-11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Average Rating  by Agent number",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Wazo-Tenant",
+						"value": "83dd446b-8f80-4a37-94ed-74a51b64a88c",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "588b2719-46ae-4c2d-b697-05ffe940e1e6",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://hivepal.com:443/api/confd/1.1/surveys/average/agent/191?from=2022-08-08&until=2022-08-15",
+					"protocol": "https",
+					"host": [
+						"hivepal",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"confd",
+						"1.1",
+						"surveys",
+						"average",
+						"agent",
+						"191"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2022-08-08"
+						},
+						{
+							"key": "until",
+							"value": "2022-08-15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Average Rating  All Agent",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Wazo-Tenant",
+						"value": "83dd446b-8f80-4a37-94ed-74a51b64a88c",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "588b2719-46ae-4c2d-b697-05ffe940e1e6",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://hivepal.com:443/api/confd/1.1/surveys/average/allagent?from=2022-08-08&until=2022-08-22",
+					"protocol": "https",
+					"host": [
+						"hivepal",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"confd",
+						"1.1",
+						"surveys",
+						"average",
+						"allagent"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2022-08-08"
+						},
+						{
+							"key": "until",
+							"value": "2022-08-22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Average Rating  All Queue",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Wazo-Tenant",
+						"value": "83dd446b-8f80-4a37-94ed-74a51b64a88c",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "588b2719-46ae-4c2d-b697-05ffe940e1e6",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://hivepal.com:443/api/confd/1.1/surveys/average/allqueue?from=2022-08-08&until=2022-08-22",
+					"protocol": "https",
+					"host": [
+						"hivepal",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"confd",
+						"1.1",
+						"surveys",
+						"average",
+						"allqueue"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2022-08-08"
+						},
+						{
+							"key": "until",
+							"value": "2022-08-22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Average Rating Agent in  Specific Queue",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Wazo-Tenant",
+						"value": "83dd446b-8f80-4a37-94ed-74a51b64a88c",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "90eb0a3a-5b42-4294-9ed2-b5918bc84984",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://hivepal.com:443/api/confd/1.1/surveys/average/queue/1/agent/141?from=2022-08-08&until=2022-08-22",
+					"protocol": "https",
+					"host": [
+						"hivepal",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"confd",
+						"1.1",
+						"surveys",
+						"average",
+						"queue",
+						"1",
+						"agent",
+						"141"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2022-08-08"
+						},
+						{
+							"key": "until",
+							"value": "2022-08-22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Average Rating All Agents in  Specific Queue",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Wazo-Tenant",
+						"value": "83dd446b-8f80-4a37-94ed-74a51b64a88c",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "5021fd48-4e7a-4ea1-917a-6c20c9eb8596",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://hivepal.com:443/api/confd/1.1/surveys/average/queue/1/agents?from=2022-08-08&until=2022-08-22",
+					"protocol": "https",
+					"host": [
+						"hivepal",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"confd",
+						"1.1",
+						"surveys",
+						"average",
+						"queue",
+						"1",
+						"agents"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2022-08-08"
+						},
+						{
+							"key": "until",
+							"value": "2022-08-22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Queue Featurs List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Wazo-Tenant",
+						"value": "83dd446b-8f80-4a37-94ed-74a51b64a88c",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "588b2719-46ae-4c2d-b697-05ffe940e1e6",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://hivepal.com:443/api/confd/1.1/queue-features",
+					"protocol": "https",
+					"host": [
+						"hivepal",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"confd",
+						"1.1",
+						"queue-features"
+					],
+					"query": [
+						{
+							"key": "queue_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new  queue Feature",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Wazo-Tenant",
+						"value": "83dd446b-8f80-4a37-94ed-74a51b64a88c",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "8cfff55c-1762-4632-93ea-6d61dabd55af",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"queue_id\":\"1107\",\r\n    \"play_agentnumber_enable\": \"13\",\r\n    \"queue_survey_enable\": \"203\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hivepal.com:443/api/confd/1.1/queue-features",
+					"protocol": "https",
+					"host": [
+						"hivepal",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"confd",
+						"1.1",
+						"queue-features"
+					],
+					"query": [
+						{
+							"key": "queue_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit  Queue Featurs List",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Wazo-Tenant",
+						"value": "83dd446b-8f80-4a37-94ed-74a51b64a88c",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "8cfff55c-1762-4632-93ea-6d61dabd55af",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"queue_id\":\"1\",\r\n    \"queue_survey_enable\":\"0\",\r\n    \"play_agentnumber_enable\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hivepal.com:443/api/confd/1.1/queue-features/103",
+					"protocol": "https",
+					"host": [
+						"hivepal",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"confd",
+						"1.1",
+						"queue-features",
+						"103"
+					],
+					"query": [
+						{
+							"key": "queue_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,7 @@
+name: wazo-confd-survey
+namespace: workano
+version: 1.0.0
+author: Mohsen Rezvani
+display_name: Workano Survey
+description: This plugin install survey
+homepage: https://workano.com
