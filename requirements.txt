@@ -1,4 +1,4 @@
-git+https://github.com/wazo-platform/wazo-confd.git
+git+https://github.com/wazo-platform/wazo-call-logd.git
 git+https://github.com/wazo-platform/xivo-lib-python.git
 git+https://github.com/wazo-platform/xivo-dao.git
 flask==1.0.2

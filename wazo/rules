@@ -1,51 +1,20 @@
 #!/bin/sh
 
-WAZO_AGID="/usr/lib/python3/dist-packages/wazo_agid/"
-AGI="/usr/bin/"
-
 case "$1" in
 build)
     python3 setup.py bdist -d dist/python3
     ;;
 
 package)
-    tar xvf dist/python3/wazo-survey-*.tar.gz -C ${pkgdir}
-    cp -R etc ${pkgdir}/
-    cp -R agi ${pkgdir}/
-    cp -R wazo_agid ${pkgdir}/
-
+    tar xvf dist/python3/wazo-call-on-queue-stat-*.tar.gz -C ${pkgdir}
     ;;
 
 install)
-    echo "--------------Start to copy files"
-    cp -v agi/agent-number-announcement.py ${AGI}
-    chmod -R -c 777 ${AGI}/agent-number-announcement.py
-
-    cp -f wazo_agid/handlers/queue_survey.py ${WAZO_AGID}/handlers/queue_survey.py
-    cp -f wazo_agid/modules/queue_survey_log.py ${WAZO_AGID}/modules/queue_survey_log.py
-    cp -f wazo_agid/modules/did_queue_set_features.py ${WAZO_AGID}/modules/did_queue_set_features.py
-    cp -f wazo_agid/objects_workano.py ${WAZO_AGID}/objects_workano.py
-
-    echo "---------- Finish copy files"
-    systemctl restart wazo-confd
-    systemctl restart wazo-agid
-
-    asterisk -x 'dialplan reload'
+    systemctl restart wazo-call-logd
     ;;
 
 uninstall)
-    echo "--------------Start to remove files"
-    rm  -rf  ${AGI}/agent-number-announcement.py
-    rm  -rf  ${WAZO_AGID}/handlers/queue_survey.py
-    rm  -rf  ${WAZO_AGID}/modules/queue_survey_log.py
-    rm  -rf  ${WAZO_AGID}/modules/did_queue_set_features.py
-    rm  -rf  ${WAZO_AGID}/objects_workano.py       
-    echo "---------- Finish remove files"
-
-    systemctl restart wazo-confd
-    systemctl restart wazo-agid
-
-    asterisk -x 'dialplan reload'
+    systemctl restart wazo-call-logd
     ;;
 
 postrm) ;;

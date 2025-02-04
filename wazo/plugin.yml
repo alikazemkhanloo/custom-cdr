@@ -1,7 +1,7 @@
-name: wazo-confd-survey
+name: wazo-call-on-queue-stat
 namespace: workano
 version: 1.0.0
 author: Mohsen Rezvani
-display_name: Workano Survey
-description: This plugin install survey
+display_name: Workano Queue Stats
+description: This plugin installs queue stat
 homepage: https://workano.com
