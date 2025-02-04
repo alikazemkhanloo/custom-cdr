@@ -13,7 +13,7 @@ from xivo.auth_verifier import required_acl
 #             return [tenant_uuid]
 
 
-class CallOnQueueStatResource(AuthResource):
+class CallOnQueueStatByAgentResource(AuthResource):
     def __init__(self, service):
         super().__init__()
         self.service: StatCallOnQueueService = service
@@ -24,5 +24,19 @@ class CallOnQueueStatResource(AuthResource):
         # tenant_uuids = self.visible_tenants(recurse=True)
         # queue_stats = self.service.list(tenant_uuids, **args)
         call_on_queue_stats = self.service.get_stat_for_agent(agent_id = agent_id)
+        return call_on_queue_stats
+    
+
+class CallOnQueueStatByQueueResource(AuthResource):
+    def __init__(self, service):
+        super().__init__()
+        self.service: StatCallOnQueueService = service
+
+    @required_acl('call-logd.agents.statistics.read')
+    def get(self, queue_id):
+        args = StateCallOnQueueRequestSchema().load(request.args)
+        # tenant_uuids = self.visible_tenants(recurse=True)
+        # queue_stats = self.service.list(tenant_uuids, **args)
+        call_on_queue_stats = self.service.get_stat_for_queue(queue_id = queue_id)
         return call_on_queue_stats
     

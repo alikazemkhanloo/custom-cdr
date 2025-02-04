@@ -15,7 +15,16 @@ class StateCallOnQueueRequestSchema(Schema):
     until = fields.DateTime(load_default=None)
     timezone = fields.String(validate=OneOf(pytz.all_timezones), load_default='UTC')
 
-    
+
+
+class CallOnStatQueueResultSchema(Schema):
+    agent_id = fields.Integer()
+    queue_id = fields.Integer()
+    agent_number = fields.Integer()
+    talktime = fields.Integer()
+    waittime = fields.Integer(),
+    rinttime = fields.Integer(),
+    status = fields.String()
 
 # Copyright 2020-2021 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later

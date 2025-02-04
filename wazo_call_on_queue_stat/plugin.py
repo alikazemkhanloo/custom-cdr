@@ -1,7 +1,7 @@
 import logging
 
 from .services import StatCallOnQueueService
-from .http import CallOnQueueStatResource
+from .http import CallOnQueueStatByAgentResource, CallOnQueueStatByQueueResource
 from . import dao
 
 logger = logging.getLogger(__name__)
@@ -14,8 +14,14 @@ class Plugin:
         state_call_on_queue_service = StatCallOnQueueService(dao)
 
         api.add_resource(
-            CallOnQueueStatResource,
+            CallOnQueueStatByAgentResource,
             '/call-on-queue-stat/agents/<int:agent_id>/',
+            resource_class_args=(state_call_on_queue_service,)
+        )
+
+        api.add_resource(
+            CallOnQueueStatByQueueResource,
+            '/call-on-queue-stat/queues/<int:queue_id>/',
             resource_class_args=(state_call_on_queue_service,)
         )
 
