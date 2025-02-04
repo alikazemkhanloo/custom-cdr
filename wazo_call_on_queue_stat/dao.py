@@ -10,7 +10,7 @@ def get_call_on_queue_stat_by_agent(session, agent_id):
         session.query(
             func.min(StatAgent.agent_id).label('agent_id'),
             func.min(StatAgent.number).label('agent_number'),
-            func.sum(StatCallOnQueue.answered).label('answered'),
+            func.sum(StatCallOnQueue.talktime).label('talktime'),
         )
         .select_from(StatAgent)
         .filter(StatAgent.agent_id == agent_id)
