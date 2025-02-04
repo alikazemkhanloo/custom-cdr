@@ -18,7 +18,7 @@ setup(
 
     entry_points={
         'wazo_call_logd.plugins': [
-            'call_on_queue_stat = wazo_call_on_queue_stat.plugin:Plugin'
+            'wazo_call_on_queue_stat = wazo_call_on_queue_stat.plugin:Plugin'
         ]
     }
 )
