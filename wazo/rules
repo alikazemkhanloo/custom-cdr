@@ -7,6 +7,8 @@ build)
 
 package)
     tar xvf dist/python3/wazo-call-on-queue-stat-*.tar.gz -C ${pkgdir}
+    cp -R etc ${pkgdir}/
+
     ;;
 
 install)
@@ -14,6 +16,7 @@ install)
     ;;
 
 uninstall)
+    rm -f /etc/wazo-call-logd/conf.d/50-wazo-call-on-queue-stat.yml
     systemctl restart wazo-call-logd
     ;;
 
