@@ -15,7 +15,7 @@ class Plugin:
 
         api.add_resource(
             CallOnQueueStatResource,
-            '/agents/<int:agent_id>/call-on-queue-stat',
+            '/agentss/<int:agent_id>/call-on-queue-stat',
             endpoint='surveys',
             resource_class_args=(state_call_on_queue_service,)
         )

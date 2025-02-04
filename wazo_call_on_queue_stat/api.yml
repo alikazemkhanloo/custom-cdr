@@ -1,5 +1,5 @@
 paths:
-  /agents/{agent_number}/call-on-queue-stat:
+  /agentss/{agent_number}/call-on-queue-stat:
     get:
       summary: List All Surveys by Agent Number
       description: '**Required ACL:** `confd.survey.read`'
