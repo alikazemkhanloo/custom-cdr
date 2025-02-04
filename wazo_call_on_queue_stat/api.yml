@@ -1,12 +1,10 @@
 paths:
-  /agentss/{agent_number}/call-on-queue-stat:
+  /agents-call-on-queue-stat:
     get:
       summary: List All Surveys by Agent Number
       description: '**Required ACL:** `confd.survey.read`'
       tags:
-        - surveys
-      parameters:
-        - $ref: '#/parameters/agentnumber'
+        - call-on-queue-stat
       responses:
         '200':
           description: Successful operation
@@ -15,22 +13,6 @@ paths:
               schema:
                 $ref: '#/definitions/SurveyItems'
 
-components:
-  schemas:
-    QueueFeatures:
-      type: object
-      properties:
-        queue_id:
-          type: string
-          example: 1
-        play_agentnumber_enable:
-          type: string
-          example: 0
-        queue_survey_enable:
-          type: string
-          example: 1
-      xml:
-        name: QueueFeatures
 
 definitions:
   SurveyItems:
@@ -77,11 +59,3 @@ definitions:
             type: string
             readOnly: true
             description: The rate
-
-parameters:  
-  agentnumber:
-    required: true
-    type: integer
-    name: agent_number
-    in: path
-    description: Agent's Number
