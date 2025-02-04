@@ -15,8 +15,11 @@ class Plugin:
 
         api.add_resource(
             CallOnQueueStatResource,
-            '/agents-call-on-queue-stat',
+            '/call-on-queue-stat/agents/<int:agent_id>/',
             resource_class_args=(state_call_on_queue_service,)
         )
+
+            # '/call-on-queue-stat/queues/<int:queue_id>/',
+
 
         logger.info('!!!!!!!!!!!!! workano survey plugin loaded!!!!')
