@@ -132,8 +132,8 @@ def get_call_on_queue_stat_by_queue(
             func.min(StatCallOnQueue.status).label("status"),
         )
         .select_from(StatCallOnQueue)
-        .filter(StatAgent.agent_id == queue_id)
-        .filter(StatAgent.tenant_uuid == tenant_uuid)
+        .filter(StatQueue.queue_id == queue_id)
+        .filter(StatQueue.tenant_uuid == tenant_uuid)
         .join(StatAgent)
         .join(StatQueue)
         .group_by(StatCallOnQueue.status)
