@@ -55,7 +55,6 @@ def get_call_on_queue_stat_by_agent(
     until=None,
     timezone=None,
 ):
-    print("agent_id, tenant_uuid >>>", agent_id, tenant_uuid)
     query = (
         session.query(
             func.min(StatAgent.agent_id).label("agent_id"),
