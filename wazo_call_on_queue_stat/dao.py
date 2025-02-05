@@ -114,7 +114,6 @@ def get_call_on_queue_stat_by_queue(
     query = (
         session.query(
             func.min(StatQueue.queue_id).label("queue_id"),
-            func.min(StatAgent.number).label("agent_number"),
             func.sum(StatCallOnQueue.talktime).label("talktime"),
             func.sum(StatCallOnQueue.ringtime).label("ringtime"),
             func.sum(StatCallOnQueue.waittime).label("waittime"),
