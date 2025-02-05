@@ -49,12 +49,12 @@ def get_call_on_queue_stat_by_agent(
     session,
     agent_id,
     tenant_uuid,
-    week_days,
-    start_time,
-    end_time,
-    from_,
-    until,
-    timezone,
+    week_days=None,
+    start_time=None,
+    end_time=None,
+    from_=None,
+    until=None,
+    timezone=None,
 ):
     print("agent_id, tenant_uuid >>>", agent_id, tenant_uuid)
     query = (
@@ -105,12 +105,12 @@ def get_call_on_queue_stat_by_queue(
     session,
     queue_id,
     tenant_uuid,
-    week_days,
-    start_time,
-    end_time,
-    from_,
-    until,
-    timezone,
+    week_days=None,
+    start_time=None,
+    end_time=None,
+    from_=None,
+    until=None,
+    timezone=None,
 ):
     query = (
         session.query(
