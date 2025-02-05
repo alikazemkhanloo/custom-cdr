@@ -21,6 +21,7 @@ class StateCallOnQueueRequestSchema(Schema):
         validate=ContainsOnly([1, 2, 3, 4, 5, 6, 7]),
     )
     timezone = fields.String(validate=OneOf(pytz.all_timezones), load_default='UTC')
+    interval = fields.String(validate=OneOf(['hour', 'day', 'month']))
 
 # Copyright 2020-2021 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
