@@ -3,7 +3,7 @@ from xivo_dao.alchemy.stat_call_on_queue import StatCallOnQueue
 from xivo_dao.alchemy.stat_agent import StatAgent
 from xivo_dao.alchemy.stat_queue import StatQueue
 from sqlalchemy import func, text
-
+from sqlalchemy.dialects.postgresql import FLOAT
 # This only work because tables used have same column name
 def _add_interval_query(
     table,
@@ -64,9 +64,9 @@ def get_call_on_queue_stat_by_agent(
             func.sum(StatCallOnQueue.talktime).label("talktime"),
             func.sum(StatCallOnQueue.ringtime).label("ringtime"),
             func.sum(StatCallOnQueue.waittime).label("waittime"),
-            func.round(func.avg(StatCallOnQueue.talktime),2).label("avg_talktime"),
-            func.round(func.avg(StatCallOnQueue.ringtime),2).label("avg_ringtime"),
-            func.round(func.avg(StatCallOnQueue.waittime),2).label("avg_waittime"),
+            func.cast(func.round(func.avg(StatCallOnQueue.talktime),2),FLOAT ).label("avg_talktime"),
+            func.cast(func.round(func.avg(StatCallOnQueue.ringtime),2),FLOAT ).label("avg_ringtime"),
+            func.cast(func.round(func.avg(StatCallOnQueue.waittime),2),FLOAT ).label("avg_waittime"),
             func.min(StatCallOnQueue.talktime).label("min_talktime"),
             func.min(StatCallOnQueue.ringtime).label("min_ringtime"),
             func.min(StatCallOnQueue.waittime).label("min_waittime"),
@@ -119,9 +119,9 @@ def get_call_on_queue_stat_by_queue(
             func.sum(StatCallOnQueue.talktime).label("talktime"),
             func.sum(StatCallOnQueue.ringtime).label("ringtime"),
             func.sum(StatCallOnQueue.waittime).label("waittime"),
-            func.round(func.avg(StatCallOnQueue.talktime),2).label("avg_talktime"),
-            func.round(func.avg(StatCallOnQueue.ringtime),2).label("avg_ringtime"),
-            func.round(func.avg(StatCallOnQueue.waittime),2).label("avg_waittime"),
+            func.cast(func.round(func.avg(StatCallOnQueue.talktime),2),FLOAT ).label("avg_talktime"),
+            func.cast(func.round(func.avg(StatCallOnQueue.ringtime),2),FLOAT ).label("avg_ringtime"),
+            func.cast(func.round(func.avg(StatCallOnQueue.waittime),2),FLOAT ).label("avg_waittime"),
             func.min(StatCallOnQueue.talktime).label("min_talktime"),
             func.min(StatCallOnQueue.ringtime).label("min_ringtime"),
             func.min(StatCallOnQueue.waittime).label("min_waittime"),
