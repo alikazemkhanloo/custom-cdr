@@ -1,4 +1,3 @@
-from wazo_call_on_queue_stat.schemas import CallOnStatQueueResultSchema
 from . import dao
 
 
