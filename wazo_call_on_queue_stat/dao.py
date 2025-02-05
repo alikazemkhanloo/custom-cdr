@@ -136,7 +136,7 @@ def get_call_on_queue_stat_by_queue(
         .filter(StatAgent.tenant_uuid == tenant_uuid)
         .join(StatAgent)
         .join(StatQueue)
-        .group_by(StatCallOnQueue.stat_agent_id, StatCallOnQueue.status)
+        .group_by(StatCallOnQueue.status)
     )
 
     query = _add_interval_query(
