@@ -15,17 +15,17 @@ class Plugin:
 
         api.add_resource(
             CallOnQueueStatByAgentResource,
-            '/call-on-queue-stat/agents/<int:agent_id>/',
+            '/agents/<int:agent_id>/call-on-queue-stat/',
             resource_class_args=(state_call_on_queue_service,)
         )
 
         api.add_resource(
             CallOnQueueStatByQueueResource,
-            '/call-on-queue-stat/queues/<int:queue_id>/',
+            '/queues/<int:queue_id>/call-on-queue-stat/',
             resource_class_args=(state_call_on_queue_service,)
         )
 
-            # '/call-on-queue-stat/queues/<int:queue_id>/',
+            # '/queues/<int:queue_id>/call-on-queue-stat/',
 
 
         logger.info('!!!!!!!!!!!!! workano survey plugin loaded!!!!')
