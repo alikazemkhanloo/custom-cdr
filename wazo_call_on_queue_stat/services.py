@@ -68,8 +68,8 @@ class StatCallOnQueueService:
                     timezone=timezone,
                 )
                 output = {
-                    'start': start,
-                    'end': end,
+                    'start': str(start),
+                    'end': str(end),
                     'interval': interval,
                     'data': [row._asdict() for row in result]
                 }
