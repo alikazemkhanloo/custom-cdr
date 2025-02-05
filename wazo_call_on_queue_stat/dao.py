@@ -85,17 +85,17 @@ def get_call_on_queue_stat_by_agent(
         .group_by(StatCallOnQueue.stat_queue_id, StatCallOnQueue.status)
     )
 
-    query = _add_interval_query(
-        StatCallOnQueue,
-        query,
-        None,
-        week_days,
-        start_time,
-        end_time,
-        from_,
-        until,
-        timezone,
-    )
+    # query = _add_interval_query(
+    #     StatCallOnQueue,
+    #     query,
+    #     None,
+    #     week_days,
+    #     start_time,
+    #     end_time,
+    #     from_,
+    #     until,
+    #     timezone,
+    # )
 
     return query.all()
 
