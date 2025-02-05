@@ -13,18 +13,14 @@ HOUR_REGEX = r"^([0,1][0-9]|2[0-3]):[0-5][0-9]$"
 class StateCallOnQueueRequestSchema(Schema):
     from_ = fields.DateTime(data_key='from', load_default=None)
     until = fields.DateTime(load_default=None)
+    day_start_time = fields.String(attribute='start_time', validate=Regexp(HOUR_REGEX))
+    day_end_time = fields.String(attribute='end_time', validate=Regexp(HOUR_REGEX))
+    week_days = fields.List(
+        fields.Integer(),
+        load_default=[1, 2, 3, 4, 5, 6, 7],
+        validate=ContainsOnly([1, 2, 3, 4, 5, 6, 7]),
+    )
     timezone = fields.String(validate=OneOf(pytz.all_timezones), load_default='UTC')
-
-
-
-class CallOnStatQueueResultSchema(Schema):
-    agent_id = fields.Integer()
-    queue_id = fields.Integer()
-    agent_number = fields.Integer()
-    talktime = fields.Integer()
-    waittime = fields.Integer(),
-    rinttime = fields.Integer(),
-    status = fields.String()
 
 # Copyright 2020-2021 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
