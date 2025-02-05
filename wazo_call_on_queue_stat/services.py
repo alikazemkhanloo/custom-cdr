@@ -12,6 +12,8 @@ class StatCallOnQueueService:
         print(result)
         output = []
         for row in result:
+            print(type(row))
+            print(dir(row))
             output.append(row._as_dict())
         return output
 
