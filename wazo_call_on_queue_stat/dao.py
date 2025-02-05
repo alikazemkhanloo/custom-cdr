@@ -75,7 +75,7 @@ def get_call_on_queue_stat_by_agent(
             func.max(StatCallOnQueue.ringtime).label("max_ringtime"),
             func.max(StatCallOnQueue.waittime).label("max_waittime"),
             func.count(StatCallOnQueue.status).label("count"),
-            StatCallOnQueue.status.label("status"),
+            func.min(StatCallOnQueue.status).label("status"),
         )
         .select_from(StatCallOnQueue)
         .filter(StatAgent.agent_id == agent_id)
@@ -130,7 +130,7 @@ def get_call_on_queue_stat_by_queue(
             func.max(StatCallOnQueue.ringtime).label("max_ringtime"),
             func.max(StatCallOnQueue.waittime).label("max_waittime"),
             func.count(StatCallOnQueue.status).label("count"),
-            StatCallOnQueue.status.label("status"),
+            func.min(StatCallOnQueue.status).label("status"),
         )
         .select_from(StatCallOnQueue)
         .filter(StatAgent.agent_id == queue_id)
