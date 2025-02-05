@@ -4,7 +4,6 @@ from xivo_dao.alchemy.stat_agent import StatAgent
 from xivo_dao.alchemy.stat_queue import StatQueue
 from sqlalchemy import func, text
 
-
 # This only work because tables used have same column name
 def _add_interval_query(
     table,
