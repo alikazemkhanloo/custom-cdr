@@ -9,12 +9,16 @@ class StatCallOnQueueService:
         result = self.dao.get_call_on_queue_stat_by_agent(
             agent_id=agent_id, tenant_uuid=tenant_uuid, **args
         )
-        output = [row._as_dict() for row in result]
+        output = []
+        for row in result:
+            output.append(row._as_dict())
         return output
 
     def get_stat_for_queue(self, queue_id, tenant_uuid, **args):
         result = self.dao.get_call_on_queue_stat_by_queue(
             queue_id=queue_id, tenant_uuid=tenant_uuid, **args
         )
-        output = [row._as_dict() for row in result]
+        output = []
+        for row in result:
+            output.append(row._as_dict())
         return output
