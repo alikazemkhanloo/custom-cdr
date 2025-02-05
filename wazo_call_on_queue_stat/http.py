@@ -24,7 +24,7 @@ class CallOnQueueStatByAgentResource(AuthResource):
         print('>> args >> ',args)
         tenant_uuid = request.headers.get("Wazo-Tenant")
         call_on_queue_stats = self.service.get_stat_for_agent(
-            agent_id=agent_id, tenant_uuid=tenant_uuid
+            agent_id=agent_id, tenant_uuid=tenant_uuid, **args
         )
         return call_on_queue_stats
 
@@ -40,7 +40,8 @@ class CallOnQueueStatByQueueResource(AuthResource):
         print('>> args >> ',args)
         tenant_uuid = request.headers.get("Wazo-Tenant")
         call_on_queue_stats = self.service.get_stat_for_queue(
-            queue_id=queue_id, tenant_uuid=tenant_uuid
+            queue_id=queue_id, tenant_uuid=tenant_uuid,
+            **args
 
         )
         return call_on_queue_stats
