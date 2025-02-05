@@ -4,8 +4,6 @@ from xivo_dao.alchemy.stat_agent import StatAgent
 from xivo_dao.alchemy.stat_queue import StatQueue
 from sqlalchemy import func, text
 
-from .schemas import CallOnStatQueueResultSchema
-
 
 # This only work because tables used have same column name
 def _add_interval_query(
@@ -153,6 +151,5 @@ def get_call_on_queue_stat_by_queue(
         until,
         timezone,
     )
-
 
     return query.all()
