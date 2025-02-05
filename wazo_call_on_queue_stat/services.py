@@ -67,7 +67,12 @@ class StatCallOnQueueService:
                     until=end,
                     timezone=timezone,
                 )
-                output = [row._asdict() for row in result]
+                output = {
+                    'start': start,
+                    'end': end,
+                    'interval': interval,
+                    'data': [row._asdict() for row in result]
+                }
                 items.append(output)
         return items
 
