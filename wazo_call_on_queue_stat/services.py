@@ -1,3 +1,4 @@
+import pytz
 from . import dao
 from dateutil.relativedelta import relativedelta
 
@@ -51,6 +52,7 @@ class StatCallOnQueueService:
         timezone=None,
         interval=None,
     ):
+        timezone = pytz.timezone(timezone)
         if interval and from_ and until:
             for start, end in _generate_interval(interval, from_= from_, until=until, timezone=timezone):
                 print({start,end,interval})
