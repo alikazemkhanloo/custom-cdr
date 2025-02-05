@@ -63,9 +63,9 @@ def get_call_on_queue_stat_by_agent(
             func.sum(StatCallOnQueue.talktime).label("talktime"),
             func.sum(StatCallOnQueue.ringtime).label("ringtime"),
             func.sum(StatCallOnQueue.waittime).label("waittime"),
-            func.cast(func.round(func.avg(StatCallOnQueue.talktime),2),FLOAT ).label("avg_talktime"),
-            func.cast(func.round(func.avg(StatCallOnQueue.ringtime),2),FLOAT ).label("avg_ringtime"),
-            func.cast(func.round(func.avg(StatCallOnQueue.waittime),2),FLOAT ).label("avg_waittime"),
+            func.cast(func.round(func.avg(StatCallOnQueue.talktime),0),FLOAT).label("avg_talktime"),
+            func.cast(func.round(func.avg(StatCallOnQueue.ringtime),0),FLOAT).label("avg_ringtime"),
+            func.cast(func.round(func.avg(StatCallOnQueue.waittime),0),FLOAT).label("avg_waittime"),
             func.min(StatCallOnQueue.talktime).label("min_talktime"),
             func.min(StatCallOnQueue.ringtime).label("min_ringtime"),
             func.min(StatCallOnQueue.waittime).label("min_waittime"),
@@ -114,12 +114,13 @@ def get_call_on_queue_stat_by_queue(
         session.query(
             func.min(StatQueue.queue_id).label("queue_id"),
             func.min(StatAgent.agent_id).label("agent_id"),
+            func.min(StatCallOnQueue.stat_agent_id).label("stat_agent_id"),
             func.sum(StatCallOnQueue.talktime).label("talktime"),
             func.sum(StatCallOnQueue.ringtime).label("ringtime"),
             func.sum(StatCallOnQueue.waittime).label("waittime"),
-            func.cast(func.round(func.avg(StatCallOnQueue.talktime),2),FLOAT ).label("avg_talktime"),
-            func.cast(func.round(func.avg(StatCallOnQueue.ringtime),2),FLOAT ).label("avg_ringtime"),
-            func.cast(func.round(func.avg(StatCallOnQueue.waittime),2),FLOAT ).label("avg_waittime"),
+            func.cast(func.round(func.avg(StatCallOnQueue.talktime),0),FLOAT).label("avg_talktime"),
+            func.cast(func.round(func.avg(StatCallOnQueue.ringtime),0),FLOAT).label("avg_ringtime"),
+            func.cast(func.round(func.avg(StatCallOnQueue.waittime),0),FLOAT).label("avg_waittime"),
             func.min(StatCallOnQueue.talktime).label("min_talktime"),
             func.min(StatCallOnQueue.ringtime).label("min_ringtime"),
             func.min(StatCallOnQueue.waittime).label("min_waittime"),
@@ -134,7 +135,7 @@ def get_call_on_queue_stat_by_queue(
         .filter(StatQueue.tenant_uuid == tenant_uuid)
         .join(StatQueue)
         .join(StatAgent)
-        .group_by(StatCallOnQueue.status, StatAgent.agent_id)
+        .group_by(StatCallOnQueue.status, StatCallOnQueue.stat_agent_id)
     )
 
     query = _add_interval_query(
