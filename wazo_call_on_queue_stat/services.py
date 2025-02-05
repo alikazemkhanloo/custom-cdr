@@ -28,7 +28,7 @@ def _generate_interval(interval, from_, until, timezone):
     time_delta = time_deltas.get(interval, "hour")
 
     if time_delta == time_deltas["hour"]:
-        if timezone.normalize(from_ + relativedelta(months=1)) < until:
+        if timezone.normalize(timezone.localize(from_ + relativedelta(months=1))) < until:
             raise Exception(details="Maximum of 1 month for interval by hour")
     if interval:
         yield from _generate_subinterval(from_, until, time_delta, timezone)
