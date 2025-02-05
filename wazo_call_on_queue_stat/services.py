@@ -52,7 +52,7 @@ class StatCallOnQueueService:
         interval=None,
     ):
         if interval and from_ and until:
-            for start, end in _generate_interval(interval, from_= from_, until=until):
+            for start, end in _generate_interval(interval, from_= from_, until=until, timezone=timezone):
                 print({start,end,interval})
                 pass
         result = self.dao.get_call_on_queue_stat_by_agent(
