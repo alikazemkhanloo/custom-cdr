@@ -112,7 +112,7 @@ def get_call_on_queue_stat_by_queue(
 ):
     query = (
         session.query(
-            # func.min(StatQueue.queue_id).label("queue_id"),
+            func.min(StatQueue.queue_id).label("queue_id"),
             # func.min(StatAgent.agent_id).label("agent_id"),
             func.min(StatCallOnQueue.stat_agent_id).label("stat_agent_id"),
             # func.sum(StatCallOnQueue.talktime).label("talktime"),
@@ -133,7 +133,7 @@ def get_call_on_queue_stat_by_queue(
         .select_from(StatCallOnQueue)
         .filter(StatQueue.queue_id == queue_id)
         .filter(StatQueue.tenant_uuid == tenant_uuid)
-        # .join(StatQueue)
+        .join(StatQueue)
         # .join(StatAgent)
         .group_by(StatCallOnQueue.stat_agent_id, StatCallOnQueue.status)
     )
