@@ -108,5 +108,22 @@ class StatCallOnQueueService:
                     'data': [row._asdict() for row in result]
                 }
                 items.append(output)
+        else:
+            result = self.dao.get_call_on_queue_stat_by_queue(
+                queue_id=queue_id,
+                tenant_uuid=tenant_uuid,
+                week_days=week_days,
+                start_time=start_time,
+                end_time=end_time,
+                from_=from_,
+                until=until,
+                timezone=timezone,
+            )
+            output = {
+                'start': from_.isoformat(),
+                'end': until.isoformat(),
+                'data': [row._asdict() for row in result]
+            }
+            items.append(output)
         return items
 
