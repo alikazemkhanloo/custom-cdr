@@ -18,4 +18,5 @@ class CustomCDRResource(CDRAuthResource):
         print("args", args)
         args["tenant_uuids"] = self.query_or_header_visible_tenants(args["recurse"])
         cdrs = self.cdr_service.list(args)
+        print("cdr list", cdrs)
         return format_cdr_result(CDRSchemaList().dump(cdrs))
