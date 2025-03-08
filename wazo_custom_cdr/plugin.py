@@ -1,6 +1,6 @@
 import logging
 
-from .http import CDRResource
+from .http import CustomCDRResource
 from wazo_call_logd.plugins.cdr.services import CDRService, RecordingService
 from wazo_auth_client import Client as AuthClient
 from wazo_call_logd.plugins.export.notifier import ExportNotifier
@@ -17,7 +17,7 @@ class Plugin:
         cdr_service = CDRService(dao)
 
         api.add_resource(
-            CDRResource,
+            CustomCDRResource,
             '/custom-cdr',
             resource_class_args=[cdr_service],
         )

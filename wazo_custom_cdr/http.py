@@ -8,7 +8,7 @@ from wazo_call_logd.auth import (
 )
 
 
-class CDRResource(CDRAuthResource):
+class CustomCDRResource(CDRAuthResource):
     @required_acl(
         'call-logd.cdr.read', extract_token_id=extract_token_id_from_query_or_header
     )
