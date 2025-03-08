@@ -13,16 +13,14 @@ from xivo_dao.helpers.db_manager import daosession
 logger = logging.getLogger(__name__)
 
 
+@daosession
+def getSession(session):
+    return session
+
 class Plugin:
-    @daosession
-    def getDao(session, self):
-        dao  = CallLogDAO(session)
-        return dao
-        
-        
     def load(self, dependencies):
         api = dependencies['api']
-        dao = self.getDao()
+        dao = CallLogDAO(getSession())
         cdr_service = CDRService(dao)
 
         api.add_resource(
