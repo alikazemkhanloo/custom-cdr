@@ -16,7 +16,7 @@ class Plugin:
     def load(self, dependencies):
         api = dependencies['api']
         dao = dependencies['dao']
-        dao._dao['call_logd'] = CallLogDAO
+        print('dependancies', dependencies)
         cdr_service = CDRService(dao)
 
         api.add_resource(
