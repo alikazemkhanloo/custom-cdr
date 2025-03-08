@@ -1,7 +1,5 @@
 from wazo_call_logd.http import AuthResource
 from flask import request
-from .schemas import StateCallOnQueueRequestSchema
-from .services import StatCallOnQueueService
 from xivo.auth_verifier import required_acl
 from wazo_call_logd.plugins.cdr.http import CDRAuthResource, format_cdr_result
 from wazo_call_logd.plugins.cdr.schemas import CDRListRequestSchema, CDRSchemaList
