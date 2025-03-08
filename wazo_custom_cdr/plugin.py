@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 class Plugin:
     @daosession
-    def getDao(session):
+    def getDao(self, session):
         dao  = CallLogDAO(session)
         return dao
         
