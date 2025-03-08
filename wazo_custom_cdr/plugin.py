@@ -3,20 +3,25 @@ import logging
 from .dao import CallLogDAO
 
 from .http import CustomCDRResource
-from wazo_call_logd.plugins.cdr.services import CDRService, RecordingService
+from wazo_call_logd.plugins.cdr.services import  RecordingService
 from wazo_auth_client import Client as AuthClient
 from wazo_call_logd.plugins.export.notifier import ExportNotifier
-
+from .services import CDRService
 
 
 logger = logging.getLogger(__name__)
 
 
 class Plugin:
+    @daosession
+    def getDao(session):
+        dao  = CallLogDAO(session)
+        return dao
+        
+        
     def load(self, dependencies):
         api = dependencies['api']
-        dao = dependencies['dao']
-        print('dependancies', dependencies)
+        dao = self.getDao()
         cdr_service = CDRService(dao)
 
         api.add_resource(
