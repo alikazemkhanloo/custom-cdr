@@ -7,6 +7,7 @@ from wazo_call_logd.plugins.cdr.services import  RecordingService
 from wazo_auth_client import Client as AuthClient
 from wazo_call_logd.plugins.export.notifier import ExportNotifier
 from .services import CDRService
+from xivo_dao.helpers.db_manager import daosession
 
 
 logger = logging.getLogger(__name__)
