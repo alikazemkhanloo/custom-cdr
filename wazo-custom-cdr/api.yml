@@ -1,5 +1,5 @@
 paths:
-  /agents-call-on-queue-stat:
+  /custom-cdr:
     get:
       summary: List All Surveys by Agent Number
       description: '**Required ACL:** `confd.survey.read`'

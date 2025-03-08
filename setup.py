@@ -4,21 +4,21 @@ from setuptools import find_packages
 from setuptools import setup
 
 setup(
-    name='wazo-call-on-queue-stat',
+    name='wazo-custom-cdr',
     version='1.0',
-    description='wazo queue stat',
+    description='wazo custom cdr',
     author='workano team',
     author_email='info@workano.com',
     packages=find_packages(),
     url='https://workano.com',
     include_package_data=True,
     package_data={
-        'wazo_call_on_queue_stat': ['api.yml'],
+        'wazo_custom_cdr': ['api.yml'],
     },
 
     entry_points={
         'wazo_call_logd.plugins': [
-            'wazo_call_on_queue_stat = wazo_call_on_queue_stat.plugin:Plugin'
+            'wazo_custom_cdr = wazo_custom_cdr.plugin:Plugin'
         ]
     }
 )

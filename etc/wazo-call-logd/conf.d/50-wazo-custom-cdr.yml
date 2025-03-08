@@ -1,0 +1,2 @@
+enabled_plugins:
+  wazo_custom_cdr: true

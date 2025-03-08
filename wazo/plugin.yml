@@ -1,4 +1,4 @@
-name: wazo-call-on-queue-stat
+name: wazo-custom-cdr
 namespace: workano
 version: 1.0.0
 author: Mohsen Rezvani
